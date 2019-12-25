@@ -1,13 +1,47 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/about/about",
+    "pages/detail/detail",
+    "pages/user/user",
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTitleText": "则成招标",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#eee"
+  },
+  "tabBar":{
+    "selectedColor": "#459EE7",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/tabBar/iconfont-home.png",
+        "selectedIconPath": "/images/tabBar/iconfont-home-active.png"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "关于我们",
+        "iconPath": "/images/tabBar/iconfont-about.png",
+        "selectedIconPath": "/images/tabBar/iconfont-about-active.png"
+      },
+      {
+        "pagePath": "pages/detail/detail",
+        "text": "招标",
+        "iconPath": "/images/tabBar/iconfont-list.png",
+        "selectedIconPath": "/images/tabBar/iconfont-list-active.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "/images/tabBar/iconfont-user.png",
+        "selectedIconPath": "/images/tabBar/iconfont-user-active.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
