@@ -12,7 +12,7 @@ page {
   position: absolute;
 }
 
-/* 登录、注册部分 */
+/* 第一部分：登录、注册部分 */
 .login{
   width: 90%;
   height: 350rpx;
@@ -79,4 +79,33 @@ page {
 /* 让数字居中 */
 .jilu view view:first-child{
   padding-left: 58rpx;
+}
+
+/* 第二部分：信息列表（我的投标，个人信息，公司信息，退出） */
+.info{
+  position: absolute;
+  top: 450rpx;
+  width: 100%;
+  background: #FFF;
+  font-size: 34rpx;
+}
+
+/* 分割线 */
+.Line90{
+  background: #E0E3DA;
+  width: 90%;
+  height: 2rpx;
+  margin: auto;
+}
+
+.info image{
+  width: 40rpx;
+}
+
+.d-flex{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  padding: 30rpx 0;
 }

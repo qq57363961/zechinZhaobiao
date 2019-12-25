@@ -1,7 +1,7 @@
 <!--pages/user/user.wxml-->
 <!-- 顶部背景图:固定宽度等比例缩放，懒加载 -->
 <image class="banner" src="/images/zechin/zechinIndex.jpg" mode="widthFix" lazy-load="{{true}}"></image>
-<!-- 登录注册：绝对定位，边框阴影 -->
+<!-- 第一部分：登录注册：绝对定位，边框阴影 -->
 <view class="login">
   <!-- 1.头像部分，外层block包裹image -->
   <view wx:if="{{!hasUserInfo && canIUse}}" class="imgBlock1">
@@ -24,4 +24,22 @@
       <view>我的收藏</view>
     </view>  
   </view>
+</view>
+<!-- 第二部分：信息列表（我的投标，个人信息，公司信息，退出） -->
+<view class="info">
+  <view class="d-flex">
+    <text>我的投标</text>
+    <image src="/images/user/xiangyou1.png" mode="widthFix" lazy-load="{{true}}"></image>
+  </view>
+  <view class="Line90"></view>
+  <view class="d-flex">
+    <text>我的个人信息</text>
+    <image src="/images/user/xiangyou1.png" mode="widthFix" lazy-load="{{true}}"></image>
+  </view>
+  <view class="Line90"></view>
+  <view class="d-flex">
+    <text>我的公司信息</text>
+    <image src="/images/user/xiangyou1.png" mode="widthFix" lazy-load="{{true}}"></image>
+  </view>
+  <view class="Line90"></view>
 </view>

@@ -10,7 +10,7 @@ Page({
     hasUserInfo: false, //是否已有用户信息，默认false
     canIUse: wx.canIUse('button.open-type.getUserInfo'), //判断小程序的API，回调，参数，组件等是否在当前版本可用
   },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -45,11 +45,21 @@ Page({
     }
   },
   getUserInfo: function (e) {
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+    app.globalData.userInfo = e.detail.userInfo;
+    if(e.detail.userInfo){
+      //用户按了允许授权按钮
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+    }else{
+      //用户按了拒绝按钮
+      this.setData({
+        userInfo: {},
+        hasUserInfo: false
+      })
+    }
+    
     // console.log(this.data.userInfo);
     // console.log(this.data.userInfo.nickName);
     // console.log(this.data.userInfo.avatarUrl);
