@@ -1,2 +1,27 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<!-- 顶部背景图:固定宽度等比例缩放，懒加载 -->
+<image class="banner" src="/images/zechin/zechinIndex.jpg" mode="widthFix" lazy-load="{{true}}"></image>
+<!-- 登录注册：绝对定位，边框阴影 -->
+<view class="login">
+  <!-- 1.头像部分，外层block包裹image -->
+  <view wx:if="{{!hasUserInfo && canIUse}}" class="imgBlock1">
+    <image src="/images/user/usr.png" mode="widthFix" lazy-load="{{true}}"></image>
+  </view>
+  <view wx:else class="imgBlock2">
+    <image src="{{userInfo.avatarUrl}}" mode="widthFix" lazy-load="{{true}}"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <!-- 2.授权登录 -->
+  <button wx:if="{{!hasUserInfo && canIUse}}" class="shouquan" size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>
+  <!-- 3.我的投标/我的收藏 ：弹性布局-->
+  <view class="jilu">
+    <view class="wodeToubiao">
+      <view>{{toubiao}}</view>
+      <view>我的投标</view>
+    </view> 
+    <view class="wodeShoucang">
+      <view>{{shoucang}}</view>
+      <view>我的收藏</view>
+    </view>  
+  </view>
+</view>

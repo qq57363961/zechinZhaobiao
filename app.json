@@ -10,9 +10,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "则成招标",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true,
-    "backgroundColor": "#eee"
+    "navigationBarTextStyle": "black"
   },
   "tabBar":{
     "selectedColor": "#459EE7",
