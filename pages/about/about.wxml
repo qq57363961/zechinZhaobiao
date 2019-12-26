@@ -1,2 +1,18 @@
 <!--pages/about/about.wxml-->
-<text>pages/about/about.wxml</text>
+<!-- 触摸水波纹 -->
+<view class="ripple" style="{{rippleStyle}}"></view>
+<!-- 第一部分：轮播图 -->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" class="banner" mode="widthFix"/>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 第二部分：则成介绍 -->
+<view class="info" bindtouchstart="containerTap">
+  <view class="guanyuwomen">关于我们<image src="/images/about/aboutus.png" mode="widthFix"></image></view>
+  <view class="Line90"></view>
+  <text class="cmty-desc" decode="{{true}}">{{zechinInfo}}</text>
+</view>

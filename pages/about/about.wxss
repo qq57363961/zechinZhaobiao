@@ -1,1 +1,84 @@
 /* pages/about/about.wxss */
+/* 背景颜色 */
+page {
+  background: #f3f3f3;
+}
+/* 页面触摸水波纹效果 */
+
+.ripple {
+    background-color:aquamarine;
+    border-radius: 100%;
+    height:5rpx;
+    width:5rpx;
+    margin-top: -90px;
+    position: absolute;
+    overflow: hidden;
+    z-index: 10;
+}
+@-webkit-keyframes ripple {
+    100% {
+    webkit-transform: scale(50);
+    transform: scale(50);
+    background-color: transparent;
+    }
+}
+
+.banner{
+  display: block;
+  width: 100%;
+}
+/* 设置轮播图图片高度为350 */
+swiper{
+  height: 350rpx;
+}
+.info image{
+  width: 250rpx;
+  display: block;
+  margin: auto;
+}
+.info{
+  background: #FFF;
+}
+.guanyuwomen{
+  position: relative;
+  font-size: 34rpx;
+  line-height: 1.5;
+  color: #2E5E86;
+  background-image:-webkit-linear-gradient(bottom,#F3E3E4,#FBD6D7,#E9E9E9);
+  padding: 10rpx 20rpx;
+  text-indent: 40rpx;
+  /* background: #E9E9E9; */
+}
+/* 关于我们前面的标识 */
+.guanyuwomen::after{
+  position: absolute;
+  left: 20rpx;
+  top: 18rpx;
+  content: "";
+  width: 10rpx;
+  height: 34rpx;
+  background: #2e5e86;
+}
+/* 关于我们后面的图片 */
+.guanyuwomen image{
+  position: absolute;
+  width: 118rpx;
+  top: 1rpx;
+  left: 220rpx;
+}
+
+/* 关于我们文字详细内容 */
+.cmty-desc {
+  line-height: 1.6;
+  padding: 0 30rpx 10rpx;
+  font-size: 30rpx;
+  color: #666;
+  /* 关键属性 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* 结尾以省略号显示 */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-indent: 60rpx;
+}
+

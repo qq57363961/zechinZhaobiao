@@ -1,21 +1,183 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* pages/about/about.wxss */
+/* 背景颜色 */
+page {
+  background: #f3f3f3;
+  height: 100%;
+}
+/* 页面触摸水波纹效果 */
+
+.ripple {
+    background-color:aquamarine;
+    border-radius: 100%;
+    height:5rpx;
+    width:5rpx;
+    margin-top: -90px;
+    position: absolute;
+    overflow: hidden;
+    z-index: 10;
+}
+@-webkit-keyframes ripple {
+    100% {
+    webkit-transform: scale(50);
+    transform: scale(50);
+    background-color: transparent;
+    }
+}
+.banner{
+  display: block;
+  width: 100%;
+}
+/* 设置轮播图图片高度为350 */
+swiper{
+  height: 350rpx;
+}
+.info image{
+  width: 250rpx;
+  display: block;
+  margin: auto;
+}
+/* 分割线 */
+.Line90{
+  background: #E0E3DA;
+  width: 90%;
+  height: 2rpx;
+  margin: auto;
+}
+.info,.zhaobiaoList{
+  background: #FFF;
+  margin-top: 15rpx;
+}
+.guanyuwomen,.zuixinzhaobiao{
+  position: relative;
+  font-size: 34rpx;
+  line-height: 1.5;
+  color: #2E5E86;
+  padding: 10rpx 20rpx;
+  text-indent: 40rpx;
+}
+/* 关于我们前面的标识 */
+.guanyuwomen::after,.zuixinzhaobiao::after{
+  position: absolute;
+  left: 20rpx;
+  top: 18rpx;
+  content: "";
+  width: 10rpx;
+  height: 34rpx;
+  background: #2e5e86;
+}
+/* 关于我们文字详细内容 */
+.cmty-desc {
+  line-height: 1.6;
+  padding: 0 30rpx 10rpx;
+  font-size: 30rpx;
+  color: #666;
+  /* 关键属性 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* 结尾以省略号显示 */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-indent: 60rpx;
+}
+.fold {
+  /* 设置折叠之后显示的行数 */
+  -webkit-line-clamp: 3;
+}
+.unfold {
+  -webkit-line-clamp: 0;
+}
+.view-all-layout {
+  width: 100%;
+  position: relative;
+}
+.view-all {
+  position: absolute;
+  left: 25rpx;
+  font-size: 30rpx;
+  color: #308CFB;
+  padding: 5rpx;
+}
+/* 最新招标部分 */
+.mt50{
+  margin-top: 50rpx;
+}
+/* 最新招标数量 */
+.zbLength{
+  color: #3CB371;
+  font-size: 30rpx;
+}
+.zuixinzhaobiao image{
+  width: 35rpx;
+  margin-left: 15rpx;
+}
+.guanyuwomen image{
+  position: absolute;
+  width: 48rpx;
+  top: 12rpx;
+  left: 220rpx;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+/* 滑动区域 */
+.scroll{
+  height: 650rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+/* 列表主体 */
+.listItem{
+  position: relative;
+  width: 90%;
+  margin: auto;
+}
+/* .listItem :hover{
+  background: #F5FFFA;
+} */
+
+/* 列表数字外面的圆圈,圆圈和数字都垂直居中 */
+.itemLogo image{
+  position: absolute;
+  width: 70rpx;
+  top: 50%;
+  margin-top: -35rpx;
+  left: 2rpx;
+}
+/* 列表圆圈里面数字 */
+.no27rpx{
+  position: absolute;
+  top: 50%;
+  margin-top: -25rpx;
+  left: 27rpx;
+  font-size: 30rpx;
+}
+.no17rpx{
+  position: absolute;
+  top: 50%;
+  margin-top: -25rpx;
+  left: 17rpx;
+  font-size: 30rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+/* 向右的箭头，垂直居中 */
+.linkToDetail{
+  position: absolute;
+  right: 10rpx;
+  top: 50%;
+  margin-top: -25rpx;
+  width: 50rpx;
+}
+
+/* 主标题 */
+.title{
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #008BFB;
+  margin: 20rpx 0 10rpx 100rpx;
+}
+/* 副标题 */
+.subTitle{
+  width: 75%;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  margin-left: 100rpx;
 }

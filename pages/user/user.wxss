@@ -5,6 +5,25 @@ page {
   background: #f3f3f3;
 }
 
+/* 页面触摸水波纹效果 */
+.ripple {
+    background-color:aquamarine;
+    border-radius: 100%;
+    height:5rpx;
+    width:5rpx;
+    margin-top: -90px;
+    position: absolute;
+    overflow: hidden;
+    z-index: 10;
+}
+@-webkit-keyframes ripple {
+    100% {
+    webkit-transform: scale(50);
+    transform: scale(50);
+    background-color: transparent;
+    }
+}
+
 /* 顶部背景图片 */
 .banner{
   display: block;
@@ -76,6 +95,7 @@ page {
   margin-top: 200rpx;
   font-size: 34rpx;
 }
+
 /* 让数字居中 */
 .jilu view view:first-child{
   padding-left: 58rpx;
@@ -108,4 +128,7 @@ page {
   width: 90%;
   margin: auto;
   padding: 30rpx 0;
+}
+.li:hover{
+  background: #F5FFFA;
 }

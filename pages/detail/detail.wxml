@@ -1,2 +1,6 @@
 <!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view>{{detailItem.title}}</view>
+<!-- 触摸水波纹 -->
+<view class="ripple" style="{{rippleStyle}}"></view>
+<view class="container" bindtouchstart="containerTap">
+</view>

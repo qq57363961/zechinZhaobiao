@@ -1,8 +1,10 @@
 <!--pages/user/user.wxml-->
+<!-- 触摸水波纹 bindtouchstart="containerTap"-->
+<view class="ripple" style="{{rippleStyle}}"></view>
 <!-- 顶部背景图:固定宽度等比例缩放，懒加载 -->
 <image class="banner" src="/images/zechin/zechinIndex.jpg" mode="widthFix" lazy-load="{{true}}"></image>
 <!-- 第一部分：登录注册：绝对定位，边框阴影 -->
-<view class="login">
+<view class="login" bindtouchstart="containerTap">
   <!-- 1.头像部分，外层block包裹image -->
   <view wx:if="{{!hasUserInfo && canIUse}}" class="imgBlock1">
     <image src="/images/user/usr.png" mode="widthFix" lazy-load="{{true}}"></image>
@@ -27,17 +29,17 @@
 </view>
 <!-- 第二部分：信息列表（我的投标，个人信息，公司信息，退出） -->
 <view class="info">
-  <view class="d-flex">
+  <view class="d-flex li" bindtouchstart="containerTap">
     <text>我的投标</text>
     <image src="/images/user/xiangyou1.png" mode="widthFix" lazy-load="{{true}}"></image>
   </view>
   <view class="Line90"></view>
-  <view class="d-flex">
+  <view class="d-flex li" bindtouchstart="containerTap">
     <text>我的个人信息</text>
     <image src="/images/user/xiangyou1.png" mode="widthFix" lazy-load="{{true}}"></image>
   </view>
   <view class="Line90"></view>
-  <view class="d-flex">
+  <view class="d-flex li" bindtouchstart="containerTap">
     <text>我的公司信息</text>
     <image src="/images/user/xiangyou1.png" mode="widthFix" lazy-load="{{true}}"></image>
   </view>
