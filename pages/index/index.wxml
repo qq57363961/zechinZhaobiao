@@ -13,7 +13,6 @@
 <!-- 第二部分：则成介绍 -->
 <view class="info" bindtouchstart="containerTap">
   <view class="guanyuwomen">关于我们<image src="/images/index/team.png" mode="widthFix"></image></view>
-  <view class="Line90"></view>
   <text class="cmty-desc {{fold ? 'fold' : 'unfold'}}" decode="{{true}}">{{zechinInfo}}</text>
   <view class="view-all-layout">
     <text class="view-all" bindtap="unfold">{{foldText}}</text>
@@ -22,7 +21,6 @@
 <!-- 第三部分：招标列表 scroll-view -->
 <view class="zhaobiaoList mt50" bindtouchstart="containerTap">
   <view class="zuixinzhaobiao">最新招标<text class="zbLength">({{zhaobiaoListLength}})</text><image src="/images/index/hot.png" mode="widthFix"></image></view>
-  <view class="Line90"></view>
   <scroll-view scroll-y="true" scroll-x="false" bindscrolltolower="loadMore" class="scroll">
     <!-- 遍历数据 -->
     <view wx:for="{{zhaobiaoList}}" wx:key="index">

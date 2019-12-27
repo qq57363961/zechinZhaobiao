@@ -36,21 +36,25 @@ swiper{
   display: block;
   margin: auto;
 }
-.info{
+.info,.contact{
   background: #FFF;
+  width: 100%;
 }
-.guanyuwomen{
+.guanyuwomen,.lianxiwomen,.liuyan{
   position: relative;
   font-size: 34rpx;
   line-height: 1.5;
   color: #2E5E86;
-  background-image:-webkit-linear-gradient(bottom,#F3E3E4,#FBD6D7,#E9E9E9);
+  background-image: -webkit-radial-gradient(top, circle cover, #83abcd 0%, #ddeffd 80%);
+  background-image: -moz-radial-gradient(top, circle cover, #83abcd 0%, #ddeffd 80%);
+  background-image: -o-radial-gradient(top, circle cover, #83abcd 0%, #ddeffd 80%);
+  background-image: radial-gradient(top, circle cover, #83abcd 0%, #ddeffd 80%);
   padding: 10rpx 20rpx;
   text-indent: 40rpx;
   /* background: #E9E9E9; */
 }
 /* 关于我们前面的标识 */
-.guanyuwomen::after{
+.guanyuwomen::after,.lianxiwomen::after,.liuyan::after{
   position: absolute;
   left: 20rpx;
   top: 18rpx;
@@ -58,13 +62,6 @@ swiper{
   width: 10rpx;
   height: 34rpx;
   background: #2e5e86;
-}
-/* 关于我们后面的图片 */
-.guanyuwomen image{
-  position: absolute;
-  width: 118rpx;
-  top: 1rpx;
-  left: 220rpx;
 }
 
 /* 关于我们文字详细内容 */
@@ -82,3 +79,87 @@ swiper{
   text-indent: 60rpx;
 }
 
+/* 联系我们部分 */
+.lxwmView{
+  width: 100%;
+  background: #FFF;
+}
+.lxwmView image{
+  width: 90%;
+  margin-left: 4%;
+}
+
+/* 留言部分 */
+.message{
+  background: #F8F5FB;
+  width: 100%;
+}
+.liuyanNeiRong{
+  border-bottom: 1rpx solid #E0E3DA;
+  width: 85%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 40rpx;
+  padding: 15rpx 20rpx;
+  line-height: 1.5;
+  font-size: 30rpx;
+  background: #fff;
+  color: #8B4513;
+  border-radius: 2%;
+}
+.area{
+  position: relative;
+}
+.textareaCouter{
+  position: absolute;
+  top: 85%;
+  right: 45rpx;
+  color: #b3b3b3;
+  font-size: 30rpx;
+}
+/* placeholder的样式 */
+.phcolor{
+  font-size:30rpx;
+}
+/* 分割线 */
+.Line90{
+  background: #E0E3DA;
+  width: 90%;
+  height: 2rpx;
+  margin: auto;
+}
+/* 截图文字部分 */
+.jietu{
+  margin: 20rpx 40rpx;
+  font-size: 30rpx;
+}
+.addPhoto image{
+  width: 120rpx;
+  margin-left: 40rpx;
+}
+.submit{
+  margin: 30rpx 40%;
+  width: 150rpx !important;
+}
+/* 缩略图外包裹，弹性布局 */
+.question-images {
+  display: flex;
+  align-items: center;
+  margin-top: 40rpx;
+  margin-left: 40rpx;
+}
+/* 包裹缩略图和删除按钮 */
+.q-image-wrap {
+  width: 22%;
+  margin-right: 10rpx;
+}
+/* 缩略图 */
+.q-image {
+  flex: 1;
+  height: 150rpx;
+  width: 100%;
+}
+/* 删除 */
+.q-image-remover {
+  text-align: center;
+}

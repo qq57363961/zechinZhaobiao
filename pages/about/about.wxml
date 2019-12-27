@@ -10,9 +10,37 @@
     </swiper-item>
   </block>
 </swiper>
-<!-- 第二部分：则成介绍 -->
+<!-- 第二部分：关于我们 -->
 <view class="info" bindtouchstart="containerTap">
-  <view class="guanyuwomen">关于我们<image src="/images/about/aboutus.png" mode="widthFix"></image></view>
-  <view class="Line90"></view>
+  <view class="guanyuwomen">关于我们</view>
   <text class="cmty-desc" decode="{{true}}">{{zechinInfo}}</text>
+</view>
+<!-- 第三部分：联系我们 -->
+<view class="contact" bindtouchstart="containerTap">
+  <view class="lianxiwomen">联系我们</view>
+  <view class="lxwmView"><image src="/images/about/lxwm.png" mode="widthFix" lazy-load="{{true}}"></image></view>
+</view>
+<!-- 第四部分：留言 -->
+<view class="message" bindtouchstart="containerTap">
+  <view class="liuyan">留言</view>
+  <view class="area">
+    <!-- 多行输入框 -->
+    <textarea class="liuyanNeiRong" placeholder-class="phcolor" placeholder="请填写10个字以上的留言以便我们提供更好的帮助" maxlength="200" bindinput="handleContentInput"></textarea>
+    <!-- 统计输入字数 -->
+    <view class="textareaCouter">{{contentCount}}/500</view>
+  </view>
+  <view class="jietu">截图({{imageNum}}/4)</view>
+  <!-- 添加图片按钮 -->
+  <view class="addPhoto"><image src="/images/about/addPhoto.png" mode="widthFix" bindtap="chooseImage" wx:if="{{images.length<4}}"></image></view>
+  <!-- 图片缩略图 -->
+  <view class="question-images">
+    <block wx:for="{{images}}" wx:key="*this">
+      <view class="q-image-wrap">
+        <image class="q-image" src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+        <view class="q-image-remover" data-idx="{{index}}" bindtap="removeImage">删除</view>
+      </view>    
+    </block>
+  </view>
+  <!-- 提交按钮 https://www.jianshu.com/p/c1e0574ee63d -->
+  <button class="submit" type="primary" size="mini">提交</button>
 </view>

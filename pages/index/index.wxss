@@ -53,6 +53,10 @@ swiper{
   font-size: 34rpx;
   line-height: 1.5;
   color: #2E5E86;
+  background-image: -webkit-radial-gradient(top, circle cover, #83abcd 0%, #ddeffd 80%);
+  background-image: -moz-radial-gradient(top, circle cover, #83abcd 0%, #ddeffd 80%);
+  background-image: -o-radial-gradient(top, circle cover, #83abcd 0%, #ddeffd 80%);
+  background-image: radial-gradient(top, circle cover, #83abcd 0%, #ddeffd 80%);
   padding: 10rpx 20rpx;
   text-indent: 40rpx;
 }
