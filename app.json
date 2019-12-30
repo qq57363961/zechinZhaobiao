@@ -4,6 +4,7 @@
     "pages/about/about",
     "pages/detail/detail",
     "pages/user/user",
+    "pages/list/list",
     "pages/logs/logs"
   ],
   "window": {

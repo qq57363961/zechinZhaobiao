@@ -1,27 +1,12 @@
-// pages/about/about.js
-//获取应用实例
-const app = getApp()
+// pages/list/list.js
+var app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    //轮播的图片
-    imgUrls: [
-      '/images/zechin/zechinIndex.jpg',
-      '/images/zechin/zechinIntr1.jpg',
-      '/images/zechin/zechinIntr2.jpg',
-      '/images/zechin/zechinIntr3.jpg',
-    ],
-    indicatorDots: true, // 是否显示面板指示点
-    autoplay: true, // 是否自动切换
-    circular: true, // 是否采用衔接滑动
-    interval: 4000, // 自动切换时间间隔
-    duration: 1000, // 滑动动画时长
-    zechinInfo: '则成电子（股票代码837821）成立于2003年，为国家级高新技术企业。公司专注于FPC应用的定制化传感器模组模块的JDM制造服务商，产品主要应用包括汽车电子、医疗监护、指纹识别、通讯和消费电子等领域。公司拥有成熟完善的运作平台和管理体系实现与国际接轨，秉持顾客和技术双轮驱动的发展理念。则成电子在基于FPC运用的传感器JDM制造服务领域始终保持领先性，并由此成为众多世界500强企业的优秀供应商和合作伙伴。展望未来，以“创造-则成健康完美的人生”为愿景，发扬“诚信、和谐、创新、高效”的企业精神，则成电子将持续不断地扩大对世界的贡献。\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;广东则成科技有限公司是则成电子的全资子公司，根据企业产业布局和发展规划，新建年产45万平方米线路板“智造”工厂，此项目位于珠海市富山工业园富山片区高栏港高速东侧，2019年5月23日正式开工建设，预计2020年12月份建成投产。现就广东则成科技有限公司线路板生产设备、材料、工艺方案等全球供应链招商，欢迎专业厂商和朋友洽谈。',
-    fold: true,
-    foldText: '展开',
+    navbarTitle: [],
+    currentTab: 0,
     zhaobiaoList: [{
         "id": 1,
         "leixing": "设备",
@@ -178,98 +163,39 @@ Page({
     ],
     fontColorList: ['#FA0039', '#008BFB', '#FC7317', '#9D005B', '#18723A', '#5B20FA'],
     detailList: [],
+    fold: true,
+    foldText: '展开',
+    showIndex: -1,
     zhaobiaoListLength: 0, //最新招标数量
-    showIndex: -1
+    detailItem: null,
+    getLeixing: null, //从其它页面传入的类型名
+    getId: 0, //从其它页面传入进来的id
+
   },
-  unfold: function(e) {
-    var page = this;
-    let value = !this.data.fold;
-    var text = '';
-    if (value) {
-      text = '展开';
+  /**
+   * 导航标签选择
+   */
+  swichNav: function(e) {
+    console.log(e);
+    var that = this;
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
     } else {
-      text = '收起';
+      that.setData({
+        currentTab: e.target.dataset.current,
+      })
     }
+  },
+  /**
+   * 导航页面显示
+   */
+  swiperChange: function(e) {
+    console.log(e);
     this.setData({
-      fold: value,
-      foldText: text
+      currentTab: e.detail.current,
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-    //获取招标数量
-    this.getZhaoBiaoListLength();
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  },
-
-  //获取招标信息数量
-  getZhaoBiaoListLength: function() {
-    //zhaobiaoList的长度
-    var len = this.data.zhaobiaoList.length;
-    this.setData({
-      zhaobiaoListLength: len
-    });
-  },
-
-  loadMore: function() { //触发加载更多
-    // if (this.data.flag) {
-    //   this.requestData(); 
-    // }
-    console.log("已经滑动到最底部了，继续加载数据。。。");
-  },
-  //点击列表，跳转到详情页面，把index传过去
-  toDetail: function(e) {
-    //showIndex是被选中的item的index，否则为-1
+  changeToggle: function(e) {
     if (e.currentTarget.dataset.index != this.data.showIndex) {
       this.setData({
         showIndex: e.currentTarget.dataset.index
@@ -279,39 +205,152 @@ Page({
         showIndex: -1
       })
     }
-    var index = e.currentTarget.dataset.index;
-    //使用全局变量传值
-    app.globalData.detailItem = this.data.zhaobiaoList[index];
-    // setTimeout(function() {
-    //   wx.switchTab({
-    //     url: '/pages/detail/detail',
-    //     //switchTab默认跳转后不会刷新，需设置
-    //     success: function(e) {
-    //       var page = getCurrentPages().pop();
-    //       if (page == undefined || page == null) return;
-    //       page.onLoad();
-    //     }
-    //   })
-    // }, 1000)
+  },
+  //事件处理函数
+  bindViewTap: function() {
     wx.navigateTo({
-      url: '/pages/list/list',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      url: '../logs/logs'
     })
   },
-  // 页面触摸水波纹效果
-  containerTap: function(res) {
-    var that = this
-    var x = res.touches[0].pageX;
-    var y = res.touches[0].pageY + 85;
+  onLoad: function() {
+    //getnavbarTitle()类别数组去重，以获取导航栏条目
     this.setData({
-      rippleStyle: ''
+      navbarTitle: this.getnavbarTitle(this.data.zhaobiaoList)
     });
-    setTimeout(function() {
-      that.setData({
-        rippleStyle: 'top:' + y + 'px;left:' + x + 'px;-webkit-animation: ripple 0.4s linear;animation:ripple 0.4s linear;'
-      });
-    }, 200)
+    //获取页面跳转后显示的类型和要展开的对应的id
+    this.setData({
+      showIndex: app.globalData.detailItem.id - 1,
+      getLeixing: app.globalData.detailItem.leixing
+    })
+    // this.requestData();
+    // //获取屏幕高度
+    // var self = this;
+    // wx.getSystemInfo({
+    //   success: function(res) {
+    //     self.setData({
+    //       windowHeight:res.windowHeight
+    //     })
+    //   },
+    // })
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
+    //页面跳转过来到navbar哪一项
+    for (var i = 0; i < this.data.navbarTitle.length; i++) {
+      if (this.data.getLeixing == this.data.navbarTitle[i]) {
+        this.setData({
+          currentTab: i
+        });
+      }
+    }
+    //获取招标信息
+    //this.getZhaobiaoList(); //3.
+    //获取招标数量
+    this.getZhaoBiaoListLength();
   },
+  onReady: function() {
+    //获取招标信息的列表中的detail列表
+    this.getDetailList();
+  },
+  getUserInfo: function(e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+  },
+  // 获取招标列表中的详情
+  getDetailList: function() {
+    var self = this;
+    var detailArr = [];
+    for (var i = 0; i < self.data.zhaobiaoList.length; i++) {
+      detailArr[i] = self.data.zhaobiaoList[i].detail.split(";");
+    }
+    self.setData({
+      detailList: detailArr
+    })
+    //console.log(self.data.detailList);
+  },
+  //访问网络，获取招标信息1.
+  /*
+  requestData: function() {
+    this.setData({
+      flag:false
+    })
+    var that = this;
+    wx.request({
+      url: app.globalData.zhaobiaoUrl,
+      data: {
+        a: 'getPortalList',
+        catid: '5',
+        page: that.data.page
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        if (res.data.result.length < 5) {//请求到的数据length<5时候，表示已经是最后一页，关掉开关
+          var f = false;
+        } else {
+
+          var f = true;
+        }
+
+        var list = that.data.list.concat(res.data.result)
+        var page = ++that.data.page;
+        that.setData({
+          list: list,
+          page: page,
+          flag: f
+        })
+      }
+    })
+  },
+  */
+  loadMore() { //出发加载更多
+    // if (this.data.flag) {
+    //   this.requestData(); 
+    // }
+    console.log("已经滑动到最底部了，继续加载数据。。。");
+  },
+  //获取招标信息数量
+  getZhaoBiaoListLength: function() {
+    //zhaobiaoList的长度
+    var len = this.data.zhaobiaoList.length;
+    this.setData({
+      zhaobiaoListLength: len
+    });
+  },
+  getnavbarTitle: function(array) {
+    var newArr = [];
+    for (var i = 0; i < array.length; i++) {
+      newArr.push(array[i].leixing);
+    }
+    console.log(newArr);
+    return Array.from(new Set(newArr));
+  }
 })

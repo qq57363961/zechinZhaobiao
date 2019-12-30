@@ -7,14 +7,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-    leibie: '',
-    title:'',
-    subTitle:'',
-    detail:'',
-    riqi:'',
-    tag: '',
+    imgUrls: [
+      '/images/detail/shikexian.jpg',
+      '/images/detail/jingmichongchuang.jpg',
+      '/images/detail/buqiangji.jpg',
+      '/images/detail/shoudongyingxiang.jpg',
+      '/images/detail/ganmotuoshui.jpg',
+      '/images/detail/shoubanji.jpg',
+    ],
+    indicatorDots: true, // 是否显示面板指示点
+    autoplay: true, // 是否自动切换
+    circular: true, // 是否采用衔接滑动
+    interval: 4000, // 自动切换时间间隔
+    duration: 1000, // 滑动动画时长
     detailItem:{},
-    rippleStyle:''
+    rippleStyle:'',
+    routers: [
+      {
+        name: '设备',
+        url: '/pages/shebei/shebei',
+        icon: '/images/detail/shebei.jpg',
+        code: '10'
+      },
+      {
+        name: '生产物料',
+        url: '/pages/shengchanwuliao/shengchanwuliao',
+        icon: '/images/detail/wuliao.jpg',
+        code: '11'
+      },
+      {
+        name: '辅料',
+        url: '/pages/fuliao/fuliao',
+        icon: '/images/detail/fuliao.jpg',
+        code: '10'
+      },
+      {
+        name: '包装材料',
+        url: '/pages/baozhuangcailiao/baozhuangcailiao',
+        icon: '/images/detail/baozhuang.jpg',
+        code: '11'
+      },
+    ]
   },
 
   /**

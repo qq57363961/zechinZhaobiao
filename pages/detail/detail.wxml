@@ -2,5 +2,27 @@
 <view>{{detailItem.title}}</view>
 <!-- 触摸水波纹 -->
 <view class="ripple" style="{{rippleStyle}}"></view>
-<view class="container" bindtouchstart="containerTap">
+<!-- 第一部分：轮播图 -->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" class="banner" mode="widthFix" />
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 第二部分：招标类别 -->
+<view class="zblbView">
+  <view class="weui-grids">
+    <view class="weui-grid" wx:for="{{routers}}" wx:key="name">
+      <navigator url="{{item.url+'?name='+item.name+'&code='+item.code}}">
+        <view class='weui-grid__bg'>
+          <view class="weui-grid__icon">
+            <image src=" {{item.icon}}" mode="scaleToFill" />
+            <view class="count">11</view>
+          </view>
+          <text class="weui-grid__label">{{item.name}}</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
 </view>

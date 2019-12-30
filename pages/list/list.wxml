@@ -1,0 +1,37 @@
+<view>
+  <!--顶部导航栏-->
+  <view class="swiper-tab">
+    <view wx:for="{{navbarTitle}}" wx:for-item="leixingItem" wx:key="leixingItem.index" class="tab-item {{currentTab==index ? 'on' : ''}}" data-current="{{index}}" bindtap="swichNav">{{leixingItem}}</view>
+  </view>
+  <!--内容主体-->
+  <swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChange">
+    <swiper-item wx:for="{{navbarTitle}}" wx:key="index">
+      <scroll-view scroll-y="{{true}}" scroll-x="{{false}}" bindscrolltolower="loadMore" class="item-list">
+        <!-- 列表详情 -->
+        <view class="detailItem" wx:for="{{zhaobiaoList}}" wx:if="{{navbarTitle[currentTab]==item.leixing}}" wx:key="index">
+          <view data-index="{{index}}" bindtap="changeToggle">
+            <!-- 列表标题 -->
+            <view class="detailTitle">
+              <text class="title" space="emsp">{{item.title}}\n</text>
+              <text class="subTitle">{{item.subTitle}}\n</text>
+              <view class="up_down">
+                <image src="/images/index/{{showIndex == index ? 'up':'down'}}.png" mode="widthFix" lazy-load="{{true}}"></image>
+              </view>
+            </view>
+            <view wx:if="{{showIndex == index}}" class="divLine_90"></view>
+            <!-- 列表详细内容 -->
+            <view wx:if="{{showIndex == index}}">
+              <view class="ifb-body">
+                <view class="ifb-detail" wx:for="{{detailList[index]}}" wx:key="index">
+                  <text class="ifb-detail-list">({{index+1}}) {{item}}\n</text>
+                </view>
+              </view>
+              <view class="divLine_90"></view>
+              <view class="ifb-footer">发布时间：{{item.riqi}}<button class="toubiao" size="mini" type="primary">投标</button></view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
